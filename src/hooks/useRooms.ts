@@ -8,7 +8,7 @@ interface Room {
   category: string
   memberCount: number
   onlineCount: number
-  lastActivityAt: string
+  updatedAt: string
   isPublic: boolean
   hasJoined: boolean
   imageUrl?: string

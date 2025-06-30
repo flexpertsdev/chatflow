@@ -69,7 +69,7 @@ interface Room {
   category: string
   memberCount: number
   onlineCount: number
-  lastActivityAt: string
+  updatedAt: string
   isPublic: boolean
   hasJoined: boolean
   imageUrl?: string
@@ -312,7 +312,7 @@ export default function ChatRoomsPage() {
                   key={room.id}
                   room={{
                     ...room,
-                    lastActivity: new Date(room.lastActivityAt),
+                    lastActivity: new Date(room.updatedAt),
                   }}
                   variant={viewMode}
                   onJoin={handleJoin}

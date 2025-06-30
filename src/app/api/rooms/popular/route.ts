@@ -18,14 +18,11 @@ export async function GET() {
       })
       .from(rooms)
       .leftJoin(roomMembers, eq(rooms.id, roomMembers.roomId))
-      .where(and(
-        eq(rooms.isPublic, true),
-        eq(rooms.isActive, true)
-      ))
+      .where(eq(rooms.isPublic, true))
       .groupBy(rooms.id)
       .orderBy(
         desc(sql`count(distinct ${roomMembers.userId})`),
-        desc(rooms.lastActivityAt)
+        desc(rooms.updatedAt)
       )
       .limit(6)
 

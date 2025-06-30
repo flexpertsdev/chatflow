@@ -61,7 +61,7 @@ export async function POST(
     // Update room's last activity
     await db
       .update(rooms)
-      .set({ lastActivityAt: new Date() })
+      .set({ updatedAt: new Date() })
       .where(eq(rooms.id, params.id))
 
     return NextResponse.json({ success: true })

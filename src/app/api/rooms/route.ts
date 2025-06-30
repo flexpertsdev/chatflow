@@ -46,7 +46,7 @@ export async function GET(req: NextRequest) {
         description: rooms.description,
         category: rooms.category,
         isPublic: rooms.isPublic,
-        lastActivityAt: rooms.lastActivityAt,
+        updatedAt: rooms.updatedAt,
         createdAt: rooms.createdAt,
         memberCount: sql<number>`count(distinct ${roomMembers.userId})`,
       })
@@ -59,7 +59,7 @@ export async function GET(req: NextRequest) {
 
     // Apply sorting
     if (sort === 'active') {
-      query.orderBy(desc(rooms.lastActivityAt))
+      query.orderBy(desc(rooms.updatedAt))
     } else if (sort === 'newest') {
       query.orderBy(desc(rooms.createdAt))
     } else if (sort === 'alphabetical') {
