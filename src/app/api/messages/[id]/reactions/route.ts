@@ -2,8 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
 import { messages, messageReactions, roomMembers } from '@/lib/db/schema'
 import { eq, and } from 'drizzle-orm'
-import { getServerSession } from 'next-auth'
-import { authOptions } from '@/lib/auth'
+import { getServerSession } from '@/lib/auth'
 
 // Add a reaction to a message
 export async function POST(
@@ -11,7 +10,7 @@ export async function POST(
   { params }: { params: { id: string } }
 ) {
   try {
-    const session = await getServerSession(authOptions)
+    const session = await getServerSession()
     if (!session?.user) {
       return NextResponse.json(
         { error: 'Unauthorized' },
@@ -116,7 +115,7 @@ export async function DELETE(
   { params }: { params: { id: string } }
 ) {
   try {
-    const session = await getServerSession(authOptions)
+    const session = await getServerSession()
     if (!session?.user) {
       return NextResponse.json(
         { error: 'Unauthorized' },

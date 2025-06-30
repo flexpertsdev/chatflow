@@ -2,13 +2,12 @@ import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
 import { messages, roomMembers } from '@/lib/db/schema'
 import { and, eq, desc } from 'drizzle-orm'
-import { getServerSession } from 'next-auth'
-import { authOptions } from '@/lib/auth'
+import { getServerSession } from '@/lib/auth'
 
 // Get messages for a room
 export async function GET(req: NextRequest) {
   try {
-    const session = await getServerSession(authOptions)
+    const session = await getServerSession()
     const userId = session?.user?.id
     
     const searchParams = req.nextUrl.searchParams
@@ -72,7 +71,7 @@ export async function GET(req: NextRequest) {
 // Send a new message
 export async function POST(req: NextRequest) {
   try {
-    const session = await getServerSession(authOptions)
+    const session = await getServerSession()
     if (!session?.user) {
       return NextResponse.json(
         { error: 'Unauthorized' },

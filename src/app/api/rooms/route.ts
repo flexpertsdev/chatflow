@@ -2,8 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
 import { rooms, roomMembers } from '@/lib/db/schema'
 import { desc, eq, sql, and, or, ilike } from 'drizzle-orm'
-import { getServerSession } from 'next-auth'
-import { authOptions } from '@/lib/auth'
+import { getServerSession } from '@/lib/auth'
 
 export async function GET(req: NextRequest) {
   try {
@@ -17,7 +16,7 @@ export async function GET(req: NextRequest) {
     const offset = (page - 1) * limit
     
     // Get current user session
-    const session = await getServerSession(authOptions)
+    const session = await getServerSession()
     const userId = session?.user?.id
 
     // Build where conditions
@@ -125,7 +124,7 @@ export async function GET(req: NextRequest) {
 // Create a new room
 export async function POST(req: NextRequest) {
   try {
-    const session = await getServerSession(authOptions)
+    const session = await getServerSession()
     if (!session?.user) {
       return NextResponse.json(
         { error: 'Unauthorized' },
