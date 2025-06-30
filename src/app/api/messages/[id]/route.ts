@@ -55,7 +55,6 @@ export async function PUT(
       .update(messages)
       .set({
         content,
-        isEdited: true,
         editedAt: new Date(),
       })
       .where(eq(messages.id, params.id))

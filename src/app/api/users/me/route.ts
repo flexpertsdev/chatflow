@@ -18,9 +18,9 @@ export async function GET(req: NextRequest) {
     const user = await db
       .select({
         id: users.id,
-        name: users.name,
+        username: users.username,
         email: users.email,
-        image: users.image,
+        avatar: users.avatar,
         createdAt: users.createdAt,
       })
       .from(users)
@@ -56,14 +56,14 @@ export async function PUT(req: NextRequest) {
     }
 
     const body = await req.json()
-    const { name, image } = body
+    const { username, avatar } = body
 
     // Update user
     const [updatedUser] = await db
       .update(users)
       .set({
-        ...(name && { name }),
-        ...(image && { image }),
+        ...(username && { username }),
+        ...(avatar && { avatar }),
         updatedAt: new Date(),
       })
       .where(eq(users.id, session.user.id))
