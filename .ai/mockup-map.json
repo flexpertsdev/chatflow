@@ -1,0 +1,131 @@
+{
+  "mockups": {
+    "root-layout-v2": {
+      "file": "src/app/layout.tsx",
+      "type": "layout",
+      "description": "Application shell with navigation",
+      "preview": "/public/mockups/root-layout.html"
+    },
+    "landing-page-v3": {
+      "file": "src/app/page.tsx",
+      "type": "page",
+      "description": "Homepage with hero and features",
+      "preview": "/public/mockups/landing-page.html"
+    },
+    "room-list-v4": {
+      "file": "src/app/chat/page.tsx",
+      "type": "page",
+      "description": "Browse and search chat rooms",
+      "preview": "/public/mockups/room-list.html",
+      "components": ["room-card-v4", "category-filter-v1"]
+    },
+    "chat-room-v5": {
+      "file": "src/app/chat/[roomId]/page.tsx",
+      "type": "page",
+      "description": "Real-time chat interface",
+      "preview": "/public/mockups/chat-room.html",
+      "components": [
+        "message-bubble-v3",
+        "chat-input-v3",
+        "member-list-v3"
+      ]
+    },
+    "message-bubble-v3": {
+      "file": "src/components/chat/MessageBubble.tsx",
+      "type": "component",
+      "description": "Chat message display",
+      "variants": ["sent", "received", "system"],
+      "preview": "/public/mockups/components/message-bubble.html"
+    },
+    "chat-input-v3": {
+      "file": "src/components/chat/ChatInput.tsx",
+      "type": "component",
+      "description": "Message composition interface",
+      "preview": "/public/mockups/components/chat-input.html"
+    },
+    "room-card-v4": {
+      "file": "src/components/chat/RoomCard.tsx",
+      "type": "component",
+      "description": "Room preview card",
+      "variants": ["grid", "list"],
+      "preview": "/public/mockups/components/room-card.html"
+    },
+    "member-list-v3": {
+      "file": "src/components/chat/MemberList.tsx",
+      "type": "component",
+      "description": "Online members sidebar",
+      "preview": "/public/mockups/components/member-list.html"
+    },
+    "create-room-v2": {
+      "file": "src/app/chat/create/page.tsx",
+      "type": "page",
+      "description": "Room creation form",
+      "preview": "/public/mockups/create-room.html"
+    },
+    "room-settings-v3": {
+      "file": "src/app/chat/settings/page.tsx",
+      "type": "page",
+      "description": "Room management interface",
+      "preview": "/public/mockups/room-settings.html"
+    },
+    "login-v2": {
+      "file": "src/app/auth/login/page.tsx",
+      "type": "page",
+      "description": "User login form",
+      "preview": "/public/mockups/login.html"
+    },
+    "register-v2": {
+      "file": "src/app/auth/register/page.tsx",
+      "type": "page",
+      "description": "User registration form",
+      "preview": "/public/mockups/register.html"
+    },
+    "database-schema-v3": {
+      "file": "src/lib/db/schema.ts",
+      "type": "schema",
+      "description": "Database structure",
+      "preview": "/public/mockups/database-erd.svg"
+    },
+    "api-spec-v2": {
+      "file": "src/lib/api/chat.ts",
+      "type": "api",
+      "description": "API endpoint definitions",
+      "preview": "/public/mockups/api-flow.svg"
+    }
+  },
+  "relationships": {
+    "navigation": {
+      "landing": ["room-list", "login"],
+      "room-list": ["chat-room", "create-room"],
+      "chat-room": ["room-settings"],
+      "login": ["register", "room-list"],
+      "register": ["login", "room-list"]
+    },
+    "components": {
+      "chat-room": [
+        "uses MessageBubble for displaying messages",
+        "uses ChatInput for sending messages",
+        "uses MemberList for showing online users"
+      ],
+      "room-list": [
+        "uses RoomCard for each room",
+        "uses CategoryFilter for filtering"
+      ]
+    }
+  },
+  "breakpoints": {
+    "mobile": {
+      "max": 767,
+      "description": "Single column, touch-optimized"
+    },
+    "tablet": {
+      "min": 768,
+      "max": 1023,
+      "description": "Flexible layout, collapsible elements"
+    },
+    "desktop": {
+      "min": 1024,
+      "description": "Full layout, all features visible"
+    }
+  }
+}

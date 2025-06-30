@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatFlow Component Gallery - Design System</title>
+    <link rel="stylesheet" href="/src/styles/globals.css">
+    <style>
+        body {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .component-section {
+            margin-bottom: 4rem;
+        }
+        
+        .component-example {
+            background: var(--surface);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            margin-bottom: 1rem;
+        }
+        
+        .example-label {
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .button-grid {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        
+        .chat-demo {
+            max-width: 600px;
+            background: var(--background);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            padding: 1rem;
+        }
+        
+        .theme-switch {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+    <div class="theme-switch">
+        <button class="btn btn-primary" onclick="toggleTheme()">Toggle Theme</button>
+    </div>
+    
+    <h1 class="text-4xl font-bold mb-8">ChatFlow Component Gallery</h1>
+    <p class="text-lg text-secondary mb-12">Interactive preview of all design system components</p>
+    
+    <!-- Buttons Section -->
+    <section class="component-section">
+        <h2 class="text-2xl font-semibold mb-6">Buttons</h2>
+        
+        <div class="component-example">
+            <div class="example-label">Primary Buttons</div>
+            <div class="button-grid">
+                <button class="btn btn-primary">Send Message</button>
+                <button class="btn btn-primary btn-lg">Join Room</button>
+                <button class="btn btn-primary btn-sm">Follow</button>
+                <button class="btn btn-primary" disabled>Disabled</button>
+            </div>
+        </div>
+        
+        <div class="component-example">
+            <div class="example-label">Secondary & Ghost Buttons</div>
+            <div class="button-grid">
+                <button class="btn btn-secondary">Cancel</button>
+                <button class="btn btn-ghost">Skip</button>
+                <button class="btn btn-icon btn-ghost">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Message Bubbles Section -->
+    <section class="component-section">
+        <h2 class="text-2xl font-semibold mb-6">Message Bubbles</h2>
+        
+        <div class="component-example">
+            <div class="chat-demo">
+                <!-- Received Message -->
+                <div class="message message-received">
+                    <div class="message-avatar">
+                        <div style="width: 36px; height: 36px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">
+                            JD
+                        </div>
+                    </div>
+                    <div>
+                        <div class="message-bubble">
+                            Hey! Check out this new design system. It's looking pretty good! 🎨
+                        </div>
+                        <div class="message-meta">
+                            <span>John Doe</span>
+                            <span>•</span>
+                            <span>2:34 PM</span>
+                        </div>
+                        <div class="message-reactions">
+                            <div class="reaction reaction-active">
+                                <span>👍</span>
+                                <span>3</span>
+                            </div>
+                            <div class="reaction">
+                                <span>❤️</span>
+                                <span>1</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sent Message -->
+                <div class="message message-sent">
+                    <div>
+                        <div class="message-bubble">
+                            Thanks! The warm purple really makes it feel friendly 💜
+                        </div>
+                        <div class="message-meta">
+                            <span>You</span>
+                            <span>•</span>
+                            <span>2:35 PM</span>
+                            <span>•</span>
+                            <span>✓✓</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- System Message -->
+                <div class="text-center my-6">
+                    <span class="text-sm text-tertiary bg-surface px-3 py-1 rounded-full">
+                        Sarah joined the room
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Chat Input Section -->
+    <section class="component-section">
+        <h2 class="text-2xl font-semibold mb-6">Chat Input</h2>
+        
+        <div class="component-example">
+            <div class="chat-input">
+                <button class="btn btn-icon btn-ghost">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"/>
+                    </svg>
+                </button>
+                <textarea 
+                    class="chat-input-field" 
+                    placeholder="Type a message..."
+                    rows="1"
+                ></textarea>
+                <div class="chat-input-actions">
+                    <button class="btn btn-icon btn-ghost">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
+                            <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/>
+                        </svg>
+                    </button>
+                    <button class="btn btn-primary btn-icon">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Room Cards Section -->
+    <section class="component-section">
+        <h2 class="text-2xl font-semibold mb-6">Room Cards</h2>
+        
+        <div class="component-example">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Room Card 1 -->
+                <div class="room-card">
+                    <div class="room-card-header">
+                        <h3 class="room-card-title">🎮 Gaming Lounge</h3>
+                        <span class="room-card-badge">128 online</span>
+                    </div>
+                    <p class="room-card-description">
+                        Discuss your favorite games, share tips, and find teammates for multiplayer sessions!
+                    </p>
+                    <div class="room-card-footer">
+                        <div class="room-card-members">
+                            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/>
+                            </svg>
+                            <span>2.3k members</span>
+                        </div>
+                        <span>Public</span>
+                    </div>
+                </div>
+                
+                <!-- Room Card 2 -->
+                <div class="room-card">
+                    <div class="room-card-header">
+                        <h3 class="room-card-title">🎵 Music Vibes</h3>
+                        <span class="room-card-badge">42 online</span>
+                    </div>
+                    <p class="room-card-description">
+                        Share your playlists, discover new artists, and discuss all things music!
+                    </p>
+                    <div class="room-card-footer">
+                        <div class="room-card-members">
+                            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/>
+                            </svg>
+                            <span>856 members</span>
+                        </div>
+                        <span>Public</span>
+                    </div>
+                </div>
+                
+                <!-- Room Card 3 - Private -->
+                <div class="room-card">
+                    <div class="room-card-header">
+                        <h3 class="room-card-title">🔒 Team Alpha</h3>
+                        <span class="room-card-badge" style="background: var(--gray-200); color: var(--text-secondary)">Private</span>
+                    </div>
+                    <p class="room-card-description">
+                        Private workspace for Team Alpha. Project discussions and updates.
+                    </p>
+                    <div class="room-card-footer">
+                        <div class="room-card-members">
+                            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/>
+                            </svg>
+                            <span>12 members</span>
+                        </div>
+                        <span>Invite Only</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Forms Section -->
+    <section class="component-section">
+        <h2 class="text-2xl font-semibold mb-6">Form Elements</h2>
+        
+        <div class="component-example">
+            <form class="max-w-md">
+                <div class="form-group">
+                    <label class="form-label">Username</label>
+                    <input type="text" class="form-input" placeholder="Enter your username">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Room Category</label>
+                    <select class="form-input form-select">
+                        <option>Select a category</option>
+                        <option>Gaming</option>
+                        <option>Music</option>
+                        <option>Study</option>
+                        <option>Social</option>
+                        <option>Tech</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Description</label>
+                    <textarea class="form-input form-textarea" placeholder="Describe your room..." rows="3"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Error Example</label>
+                    <input type="email" class="form-input" style="border-color: var(--error)" placeholder="invalid@email">
+                    <div class="form-error">Please enter a valid email address</div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Create Room</button>
+            </form>
+        </div>
+    </section>
+    
+    <!-- Loading States Section -->
+    <section class="component-section">
+        <h2 class="text-2xl font-semibold mb-6">Loading States</h2>
+        
+        <div class="component-example">
+            <div class="mb-4">
+                <div class="example-label">Skeleton Loading</div>
+                <div class="skeleton" style="height: 20px; width: 200px; margin-bottom: 8px;"></div>
+                <div class="skeleton" style="height: 20px; width: 300px; margin-bottom: 8px;"></div>
+                <div class="skeleton" style="height: 20px; width: 150px;"></div>
+            </div>
+            
+            <div>
+                <div class="example-label">Spinner</div>
+                <div class="flex gap-4 items-center">
+                    <div class="spinner"></div>
+                    <span class="text-secondary">Loading messages...</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Modal Example -->
+    <section class="component-section">
+        <h2 class="text-2xl font-semibold mb-6">Modal</h2>
+        
+        <div class="component-example">
+            <button class="btn btn-primary" onclick="showModal()">Open Modal</button>
+            
+            <div id="modal" class="modal-backdrop" style="display: none;" onclick="hideModal(event)">
+                <div class="modal" onclick="event.stopPropagation()">
+                    <div class="modal-header">
+                        <h3 class="text-xl font-semibold">Create New Room</h3>
+                    </div>
+                    <div class="modal-body">
+                        <p class="mb-4">Fill in the details to create your new chat room.</p>
+                        <div class="form-group">
+                            <label class="form-label">Room Name</label>
+                            <input type="text" class="form-input" placeholder="Enter room name">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-ghost" onclick="hideModal()">Cancel</button>
+                        <button class="btn btn-primary">Create Room</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+        
+        function showModal() {
+            document.getElementById('modal').style.display = 'flex';
+        }
+        
+        function hideModal(event) {
+            if (!event || event.target.classList.contains('modal-backdrop')) {
+                document.getElementById('modal').style.display = 'none';
+            }
+        }
+        
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+        
+        // Auto-resize textarea
+        document.querySelectorAll('textarea').forEach(textarea => {
+            textarea.addEventListener('input', function() {
+                this.style.height = 'auto';
+                this.style.height = this.scrollHeight + 'px';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatFlow Color Palette - Design System</title>
+    <link rel="stylesheet" href="/src/styles/design-system.css">
+    <style>
+        body {
+            font-family: var(--font-sans);
+            padding: 2rem;
+            background: var(--background);
+            color: var(--text-primary);
+        }
+        
+        .palette-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .color-card {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .color-swatch {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: var(--font-semibold);
+            font-size: var(--text-sm);
+        }
+        
+        .color-info {
+            padding: 1rem;
+        }
+        
+        .color-name {
+            font-weight: var(--font-semibold);
+            margin-bottom: 0.25rem;
+        }
+        
+        .color-value {
+            font-family: var(--font-mono);
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+        }
+        
+        .section-title {
+            font-size: var(--text-2xl);
+            font-weight: var(--font-bold);
+            margin: 2rem 0 1rem;
+        }
+        
+        .theme-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            padding: 0.5rem 1rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: var(--radius-full);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+    
+    <h1>ChatFlow Color Palette</h1>
+    <p>Generated from user requirement: "warm and friendly, not corporate"</p>
+    
+    <h2 class="section-title">Primary Colors - Warm Purple</h2>
+    <div class="palette-grid">
+        <div class="color-card">
+            <div class="color-swatch" style="background: var(--primary-50); color: var(--primary-900)">
+                Lightest
+            </div>
+            <div class="color-info">
+                <div class="color-name">Primary 50</div>
+                <div class="color-value">#faf5ff</div>
+            </div>
+        </div>
+        
+        <div class="color-card">
+            <div class="color-swatch" style="background: var(--primary-100); color: var(--primary-900)">
+                Light
+            </div>
+            <div class="color-info">
+                <div class="color-name">Primary 100</div>
+                <div class="color-value">#f3e8ff</div>
+            </div>
+        </div>
+        
+        <div class="color-card">
+            <div class="color-swatch" style="background: var(--primary-300); color: var(--primary-900)">
+                Light
+            </div>
+            <div class="color-info">
+                <div class="color-name">Primary 300</div>
+                <div class="color-value">#d8b4fe</div>
+            </div>
+        </div>
+        
+        <div class="color-card">
+            <div class="color-swatch" style="background: var(--primary); color: white">
+                Main
+            </div>
+            <div class="color-info">
+                <div class="color-name">Primary</div>
+                <div class="color-value">#9333ea</div>
+            </div>
+        </div>
+        
+        <div class="color-card">
+            <div class="color-swatch" style="background: var(--primary-700); color: white">
+                Dark
+            </div>
+            <div class="color-info">
+                <div class="color-name">Primary 700</div>
+                <div class="color-value">#7c3aed</div>
+            </div>
+        </div>
+        
+        <div class="color-card">
+            <div class="color-swatch" style="background: var(--primary-900); color: white">
+                Darkest
+            </div>
+            <div class="color-info">
+                <div class="color-name">Primary 900</div>
+                <div class="color-value">#581c87</div>
+            </div>
+        </div>
+    </div>
+    
+    <h2 class="section-title">Accent Colors - Coral</h2>
+    <div class="palette-grid">
+        <div class="color-card">
+            <div class="color-swatch" style="background: var(--accent-100); color: var(--accent-900)">
+                Light
+            </div>
+            <div class="color-info">
+                <div class="color-name">Accent 100</div>
+                <div class="color-value">#fef3c7</div>
+            </div>
+        </div>
+        
+        <div class="color-card">
+            <div class="color-swatch" style="background: var(--accent); color: white">
+                Main
+            </div>
+            <div class="color-info">
+                <div class="color-name">Accent</div>
+                <div class="color-value">#f59e0b</div>
+            </div>
+        </div>
+        
+        <div class="color-card">
+            <div class="color-swatch" style="background: var(--accent-700); color: white">
+                Dark
+            </div>
+            <div class="color-info">
+                <div class="color-name">Accent 700</div>
+                <div class="color-value">#b45309</div>
+            </div>
+        </div>
+    </div>
+    
+    <h2 class="section-title">Semantic Colors</h2>
+    <div class="palette-grid">
+        <div class="color-card">
+            <div class="color-swatch" style="background: var(--success); color: white">
+                Success
+            </div>
+            <div class="color-info">
+                <div class="color-name">Success</div>
+                <div class="color-value">#10b981</div>
+            </div>
+        </div>
+        
+        <div class="color-card">
+            <div class="color-swatch" style="background: var(--warning); color: white">
+                Warning
+            </div>
+            <div class="color-info">
+                <div class="color-name">Warning</div>
+                <div class="color-value">#f59e0b</div>
+            </div>
+        </div>
+        
+        <div class="color-card">
+            <div class="color-swatch" style="background: var(--error); color: white">
+                Error
+            </div>
+            <div class="color-info">
+                <div class="color-name">Error</div>
+                <div class="color-value">#ef4444</div>
+            </div>
+        </div>
+        
+        <div class="color-card">
+            <div class="color-swatch" style="background: var(--info); color: white">
+                Info
+            </div>
+            <div class="color-info">
+                <div class="color-name">Info</div>
+                <div class="color-value">#3b82f6</div>
+            </div>
+        </div>
+    </div>
+    
+    <h2 class="section-title">Neutral Colors</h2>
+    <div class="palette-grid">
+        <div class="color-card">
+            <div class="color-swatch" style="background: var(--background); color: var(--text-primary); border: 1px solid var(--border)">
+                Background
+            </div>
+            <div class="color-info">
+                <div class="color-name">Background</div>
+                <div class="color-value">Dynamic</div>
+            </div>
+        </div>
+        
+        <div class="color-card">
+            <div class="color-swatch" style="background: var(--surface); color: var(--text-primary)">
+                Surface
+            </div>
+            <div class="color-info">
+                <div class="color-name">Surface</div>
+                <div class="color-value">Dynamic</div>
+            </div>
+        </div>
+        
+        <div class="color-card">
+            <div class="color-swatch" style="background: var(--gray-200); color: var(--gray-800)">
+                Border
+            </div>
+            <div class="color-info">
+                <div class="color-name">Border</div>
+                <div class="color-value">#e5e5e5</div>
+            </div>
+        </div>
+        
+        <div class="color-card">
+            <div class="color-swatch" style="background: var(--gray-600); color: white">
+                Text Primary
+            </div>
+            <div class="color-info">
+                <div class="color-name">Text</div>
+                <div class="color-value">#525252</div>
+            </div>
+        </div>
+        
+        <div class="color-card">
+            <div class="color-swatch" style="background: var(--gray-800); color: white">
+                Dark
+            </div>
+            <div class="color-info">
+                <div class="color-name">Gray 800</div>
+                <div class="color-value">#262626</div>
+            </div>
+        </div>
+        
+        <div class="color-card">
+            <div class="color-swatch" style="background: #000000; color: white">
+                True Black
+            </div>
+            <div class="color-info">
+                <div class="color-name">OLED Black</div>
+                <div class="color-value">#000000</div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+        }
+    </script>
+</body>
+</html>

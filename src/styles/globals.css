@@ -1,0 +1,442 @@
+/**
+ * CHATFLOW GLOBAL STYLES
+ * Entry point for all CSS - imports design system and applies base styles
+ */
+
+/* Import design system */
+@import './design-system.css';
+@import './components.css';
+@import './utilities.css';
+
+/* Import Inter font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* =================================================================
+ * CSS RESET / NORMALIZE
+ * =================================================================
+ * Modern CSS reset with mobile-first considerations
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  /* Prevent font size adjustments on orientation change in iOS */
+  -webkit-text-size-adjust: 100%;
+  /* Smooth scrolling for anchor links */
+  scroll-behavior: smooth;
+  /* Better font rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--text-primary);
+  background-color: var(--background);
+  /* Prevent overscroll bounce on iOS */
+  overscroll-behavior: none;
+  /* Minimum height for proper mobile viewport */
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+
+/* =================================================================
+ * TYPOGRAPHY DEFAULTS
+ * =================================================================
+ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--font-semibold);
+  line-height: var(--leading-tight);
+  color: var(--text-primary);
+}
+
+h1 {
+  font-size: var(--text-4xl);
+  margin-bottom: var(--space-6);
+}
+
+h2 {
+  font-size: var(--text-3xl);
+  margin-bottom: var(--space-5);
+}
+
+h3 {
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-4);
+}
+
+h4 {
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-3);
+}
+
+h5 {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-2);
+}
+
+h6 {
+  font-size: var(--text-base);
+  margin-bottom: var(--space-2);
+}
+
+p {
+  margin-bottom: var(--space-4);
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: var(--transition-colors);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+strong, b {
+  font-weight: var(--font-semibold);
+}
+
+em, i {
+  font-style: italic;
+}
+
+/* =================================================================
+ * FORM DEFAULTS
+ * =================================================================
+ */
+
+input,
+textarea,
+select,
+button {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+/* Remove spinners from number inputs */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* =================================================================
+ * LISTS
+ * =================================================================
+ */
+
+ul, ol {
+  list-style: none;
+}
+
+/* Styled lists when needed */
+.styled-list ul,
+.styled-list ol {
+  list-style-position: inside;
+  margin-bottom: var(--space-4);
+}
+
+.styled-list ul {
+  list-style-type: disc;
+}
+
+.styled-list ol {
+  list-style-type: decimal;
+}
+
+.styled-list li {
+  margin-bottom: var(--space-2);
+}
+
+/* =================================================================
+ * IMAGES & MEDIA
+ * =================================================================
+ */
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Lazy loading placeholder */
+img[loading="lazy"] {
+  background-color: var(--surface);
+}
+
+/* =================================================================
+ * TABLES
+ * =================================================================
+ */
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* =================================================================
+ * CODE & PRE
+ * =================================================================
+ */
+
+code,
+kbd,
+samp,
+pre {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+}
+
+code {
+  background-color: var(--surface);
+  padding: var(--space-0-5) var(--space-1);
+  border-radius: var(--radius-sm);
+}
+
+pre {
+  background-color: var(--surface);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  margin-bottom: var(--space-4);
+}
+
+pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+/* =================================================================
+ * SELECTION
+ * =================================================================
+ */
+
+::selection {
+  background-color: var(--primary);
+  color: var(--text-inverse);
+}
+
+::-moz-selection {
+  background-color: var(--primary);
+  color: var(--text-inverse);
+}
+
+/* =================================================================
+ * SCROLLBAR
+ * =================================================================
+ * Custom scrollbar for webkit browsers
+ */
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gray-400);
+  border-radius: var(--radius-full);
+  border: 3px solid var(--surface);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gray-500);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--gray-400) var(--surface);
+}
+
+/* =================================================================
+ * ANIMATIONS
+ * =================================================================
+ */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(var(--space-4));
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translateY(calc(var(--space-4) * -1));
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(calc(var(--space-4) * -1));
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(var(--space-4));
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Animation utilities */
+.animate-fadeIn {
+  animation: fadeIn var(--duration-300) var(--ease-out);
+}
+
+.animate-slideInUp {
+  animation: slideInUp var(--duration-300) var(--ease-out);
+}
+
+.animate-slideInDown {
+  animation: slideInDown var(--duration-300) var(--ease-out);
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft var(--duration-300) var(--ease-out);
+}
+
+.animate-slideInRight {
+  animation: slideInRight var(--duration-300) var(--ease-out);
+}
+
+.animate-scaleIn {
+  animation: scaleIn var(--duration-200) var(--ease-out);
+}
+
+.animate-pulse {
+  animation: pulse var(--duration-1000) var(--ease-in-out) infinite;
+}
+
+/* =================================================================
+ * PRINT STYLES
+ * =================================================================
+ */
+
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  
+  /* Hide unnecessary elements */
+  .no-print,
+  nav,
+  footer,
+  .chat-input,
+  .btn {
+    display: none !important;
+  }
+  
+  /* Ensure content fits on page */
+  .container {
+    max-width: 100%;
+  }
+  
+  /* Break inside avoid for important elements */
+  h1, h2, h3, h4, h5, h6 {
+    break-after: avoid;
+  }
+  
+  p, li {
+    break-inside: avoid;
+  }
+}
+
+/* =================================================================
+ * REDUCED MOTION
+ * =================================================================
+ * Respect user's motion preferences
+ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
