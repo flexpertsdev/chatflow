@@ -9,12 +9,7 @@ import { db } from './db'
 import { users } from './db/schema'
 import { eq } from 'drizzle-orm'
 
-export const {
-  handlers: { GET, POST },
-  auth,
-  signIn,
-  signOut,
-} = NextAuth({
+const authConfig = {
   adapter: DrizzleAdapter(db),
   session: {
     strategy: 'jwt',
@@ -91,4 +86,15 @@ export const {
     error: '/auth/error',
     verifyRequest: '/auth/verify-request',
   },
-})
+}
+
+export const {
+  handlers: { GET, POST },
+  auth,
+  signIn,
+  signOut,
+} = NextAuth(authConfig)
+
+// For NextAuth v5 beta compatibility
+export { authConfig as authOptions }
+export const getServerSession = auth
